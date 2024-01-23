@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3 uid="uid://c1pipyrj6y3ob"]
+
+[ext_resource type="Script" path="res://scenes/box.gd" id="1_enl2s"]
+[ext_resource type="Texture2D" uid="uid://bvahu4csjjyrv" path="res://sprites/Box.png" id="1_vlee1"]
+[ext_resource type="Script" path="res://scenes/area.gd" id="3_85odq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_shgpc"]
+size = Vector2(84, 84)
+
+[node name="Box" type="CharacterBody2D"]
+position = Vector2(484, 318)
+script = ExtResource("1_enl2s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_shgpc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_vlee1")
+
+[node name="AreaUp" type="Area2D" parent="."]
+script = ExtResource("3_85odq")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AreaUp"]
+polygon = PackedVector2Array(-13, -13, -42, -42, 42, -42, 0, 0)
+
+[node name="AreaLeft" type="Area2D" parent="."]
+script = ExtResource("3_85odq")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AreaLeft"]
+polygon = PackedVector2Array(0, 0, -42, -41, -42, 42)
+
+[node name="AreaDown" type="Area2D" parent="."]
+script = ExtResource("3_85odq")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AreaDown"]
+polygon = PackedVector2Array(0, 0, -42, 42, 42, 42)
+
+[node name="AreaRight" type="Area2D" parent="."]
+script = ExtResource("3_85odq")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AreaRight"]
+polygon = PackedVector2Array(0, 0, 42, -42, 42, 42)
+
+[connection signal="input_event" from="AreaUp" to="AreaUp" method="_on_input_event"]
+[connection signal="input_event" from="AreaLeft" to="AreaLeft" method="_on_input_event"]
+[connection signal="input_event" from="AreaDown" to="AreaDown" method="_on_input_event"]
+[connection signal="input_event" from="AreaRight" to="AreaRight" method="_on_input_event"]
