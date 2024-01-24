@@ -5,42 +5,43 @@
 [ext_resource type="Script" path="res://scenes/area.gd" id="3_85odq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_shgpc"]
-size = Vector2(84, 84)
+size = Vector2(78, 78)
 
 [node name="Box" type="CharacterBody2D"]
 position = Vector2(484, 318)
+collision_mask = 6
 script = ExtResource("1_enl2s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_shgpc")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("1_vlee1")
-
 [node name="AreaUp" type="Area2D" parent="."]
 script = ExtResource("3_85odq")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AreaUp"]
-polygon = PackedVector2Array(-13, -13, -42, -42, 42, -42, 0, 0)
+polygon = PackedVector2Array(-13, -13, -40, -40, 40, -40, 0, 0)
 
 [node name="AreaLeft" type="Area2D" parent="."]
 script = ExtResource("3_85odq")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AreaLeft"]
-polygon = PackedVector2Array(0, 0, -42, -41, -42, 42)
+polygon = PackedVector2Array(0, 0, -40, -40, -40, 40)
 
 [node name="AreaDown" type="Area2D" parent="."]
 script = ExtResource("3_85odq")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AreaDown"]
-polygon = PackedVector2Array(0, 0, -42, 42, 42, 42)
+polygon = PackedVector2Array(0, 0, -40, 40, 40, 40)
 
 [node name="AreaRight" type="Area2D" parent="."]
 script = ExtResource("3_85odq")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AreaRight"]
-polygon = PackedVector2Array(0, 0, 42, -42, 42, 42)
+polygon = PackedVector2Array(0, 0, 40, -40, 40, 40)
+
+[node name="Sprite2D" type="Sprite2D" parent="AreaRight"]
+scale = Vector2(0.375, 0.375)
+texture = ExtResource("1_vlee1")
 
 [connection signal="input_event" from="AreaUp" to="AreaUp" method="_on_input_event"]
 [connection signal="input_event" from="AreaLeft" to="AreaLeft" method="_on_input_event"]

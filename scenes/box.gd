@@ -1,8 +1,9 @@
 extends CharacterBody2D
 
 
-var SPEED = 1000
+var SPEED = 500
 var moving:bool = false
+var collided:bool = false
 var target_direction = Vector2.ZERO
 
 
@@ -38,7 +39,12 @@ func _move_box(direction):
 func _move_step(delta):
 	var movement = target_direction * SPEED * delta
 	position += movement
+	if move_and_slide() and not collided:
+		collided = true
+		_stop()
+	if not move_and_slide():
+		collided = false
 
-func stop():
-	pass
+func _stop():
+	moving = false
 

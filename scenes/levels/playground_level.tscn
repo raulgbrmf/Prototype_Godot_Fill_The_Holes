@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=3 uid="uid://dy546fo368rdh"]
+
+[ext_resource type="PackedScene" uid="uid://c1pipyrj6y3ob" path="res://scenes/box.tscn" id="1_g277b"]
+[ext_resource type="Script" path="res://scenes/levels/playground_level.gd" id="1_qvw76"]
+[ext_resource type="PackedScene" uid="uid://vkncio7jl66d" path="res://scenes/empty_square.tscn" id="2_88htw"]
+[ext_resource type="PackedScene" uid="uid://by2ionaxlhr26" path="res://scenes/wall.tscn" id="2_ilj08"]
+
+[node name="PlaygroundLevel" type="Node2D"]
+script = ExtResource("1_qvw76")
+metadata/_edit_vertical_guides_ = [-2.0]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+light_mask = 0
+visibility_layer = 2
+offset_left = 2.0
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+mouse_force_pass_scroll_events = false
+color = Color(0, 0.737255, 0.603922, 1)
+
+[node name="Wall" parent="." instance=ExtResource("2_ilj08")]
+position = Vector2(224, 352)
+
+[node name="EmptySquare" parent="." instance=ExtResource("2_88htw")]
+position = Vector2(672, 352)
+
+[node name="EmptySquare2" parent="." instance=ExtResource("2_88htw")]
+position = Vector2(672, 160)
+
+[node name="EmptySquare3" parent="." instance=ExtResource("2_88htw")]
+position = Vector2(480, 160)
+
+[node name="EmptySquare4" parent="." instance=ExtResource("2_88htw")]
+position = Vector2(480, 544)
+
+[node name="Box" parent="." instance=ExtResource("1_g277b")]
+position = Vector2(480, 352)
+
+[node name="Box2" parent="." instance=ExtResource("1_g277b")]
+position = Vector2(672, 544)
+
+[node name="Box3" parent="." instance=ExtResource("1_g277b")]
+position = Vector2(864, 160)
+
+[node name="Box4" parent="." instance=ExtResource("1_g277b")]
+position = Vector2(864, 544)
+
+[node name="Wall2" parent="." instance=ExtResource("2_ilj08")]
+position = Vector2(1064, 544)
+
+[node name="Wall3" parent="." instance=ExtResource("2_ilj08")]
+position = Vector2(992, 88)
