@@ -1,13 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://dy546fo368rdh"]
+[gd_scene load_steps=6 format=3 uid="uid://dy546fo368rdh"]
 
 [ext_resource type="PackedScene" uid="uid://c1pipyrj6y3ob" path="res://scenes/box.tscn" id="1_g277b"]
-[ext_resource type="Script" path="res://scenes/levels/playground_level.gd" id="1_qvw76"]
+[ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_ohpye"]
 [ext_resource type="PackedScene" uid="uid://vkncio7jl66d" path="res://scenes/empty_square.tscn" id="2_88htw"]
 [ext_resource type="PackedScene" uid="uid://by2ionaxlhr26" path="res://scenes/wall.tscn" id="2_ilj08"]
+[ext_resource type="PackedScene" uid="uid://breyjm6tdqldx" path="res://scenes/level_frontiers.tscn" id="2_mq1tv"]
 
 [node name="PlaygroundLevel" type="Node2D"]
-script = ExtResource("1_qvw76")
+script = ExtResource("1_ohpye")
 metadata/_edit_vertical_guides_ = [-2.0]
+
+[node name="LevelFrontiers" parent="." instance=ExtResource("2_mq1tv")]
 
 [node name="ColorRect" type="ColorRect" parent="."]
 light_mask = 0
@@ -51,3 +54,5 @@ position = Vector2(1064, 544)
 
 [node name="Wall3" parent="." instance=ExtResource("2_ilj08")]
 position = Vector2(992, 88)
+
+[connection signal="level_clear" from="." to="." method="_on_level_clear"]

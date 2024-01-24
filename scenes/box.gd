@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Box
 
 
 var SPEED = 500
@@ -6,9 +7,13 @@ var moving:bool = false
 var collided:bool = false
 var target_direction = Vector2.ZERO
 
+var can_move:bool = true
+
 
 func _ready():
-	#Conects the signs of input_event of each Area2d
+	$AnimationPlayer.play("fade_in")
+	
+	# Conects the signals of input_event of each Area2d
 	$AreaUp.direction =  Vector2.UP
 	$AreaLeft.direction =  Vector2.LEFT
 	$AreaRight.direction =  Vector2.RIGHT
@@ -22,8 +27,9 @@ func _ready():
 	
 
 func _process(delta):
-	if moving:
-		_move_step(delta)
+	if can_move:
+		if moving:
+			_move_step(delta)
 
 
 func _on_Area_input_event(area,event):
@@ -41,10 +47,12 @@ func _move_step(delta):
 	position += movement
 	if move_and_slide() and not collided:
 		collided = true
-		_stop()
+		_stop(true)
 	if not move_and_slide():
 		collided = false
 
-func _stop():
+func _stop(will_move:bool):
 	moving = false
+	if will_move == false:
+		can_move = false
 

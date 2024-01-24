@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://breyjm6tdqldx"]
+
+[ext_resource type="Script" path="res://scenes/level_frontiers.gd" id="1_qr7s7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c34vk"]
+size = Vector2(1151, 649)
+
+[node name="LevelFrontiers" type="Area2D"]
+script = ExtResource("1_qr7s7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(575.5, 325.5)
+shape = SubResource("RectangleShape2D_c34vk")
+
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
