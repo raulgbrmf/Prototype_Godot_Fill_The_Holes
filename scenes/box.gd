@@ -12,7 +12,6 @@ var can_move:bool = true
 
 func _ready():
 	$AnimationPlayer.play("fade_in")
-	
 	# Conects the signals of input_event of each Area2d
 	$AreaUp.direction =  Vector2.UP
 	$AreaLeft.direction =  Vector2.LEFT
@@ -41,6 +40,7 @@ func _move_box(direction):
 	if not moving:
 		moving = true
 		target_direction = direction
+		Global._increase_clicks()
 
 func _move_step(delta):
 	var movement = target_direction * SPEED * delta
@@ -54,5 +54,6 @@ func _move_step(delta):
 func _stop(will_move:bool):
 	moving = false
 	if will_move == false:
+		$Sprite2D.hide()
 		can_move = false
 

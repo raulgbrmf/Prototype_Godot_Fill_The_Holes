@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dy546fo368rdh"]
+[gd_scene load_steps=7 format=3 uid="uid://dy546fo368rdh"]
 
 [ext_resource type="PackedScene" uid="uid://c1pipyrj6y3ob" path="res://scenes/box.tscn" id="1_g277b"]
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_ohpye"]
 [ext_resource type="PackedScene" uid="uid://vkncio7jl66d" path="res://scenes/empty_square.tscn" id="2_88htw"]
 [ext_resource type="PackedScene" uid="uid://by2ionaxlhr26" path="res://scenes/wall.tscn" id="2_ilj08"]
 [ext_resource type="PackedScene" uid="uid://breyjm6tdqldx" path="res://scenes/level_frontiers.tscn" id="2_mq1tv"]
+[ext_resource type="PackedScene" uid="uid://drojw8lkdp5sq" path="res://scenes/ui/ui.tscn" id="6_oime5"]
 
 [node name="PlaygroundLevel" type="Node2D"]
 script = ExtResource("1_ohpye")
@@ -29,30 +30,33 @@ position = Vector2(224, 352)
 position = Vector2(672, 352)
 
 [node name="EmptySquare2" parent="." instance=ExtResource("2_88htw")]
-position = Vector2(672, 160)
+position = Vector2(672, 200)
 
 [node name="EmptySquare3" parent="." instance=ExtResource("2_88htw")]
-position = Vector2(480, 160)
+position = Vector2(480, 200)
 
 [node name="EmptySquare4" parent="." instance=ExtResource("2_88htw")]
-position = Vector2(480, 544)
+position = Vector2(480, 504)
 
 [node name="Box" parent="." instance=ExtResource("1_g277b")]
 position = Vector2(480, 352)
 
 [node name="Box2" parent="." instance=ExtResource("1_g277b")]
-position = Vector2(672, 544)
+position = Vector2(672, 504)
 
 [node name="Box3" parent="." instance=ExtResource("1_g277b")]
-position = Vector2(864, 160)
+position = Vector2(864, 200)
 
 [node name="Box4" parent="." instance=ExtResource("1_g277b")]
-position = Vector2(864, 544)
+position = Vector2(864, 504)
 
 [node name="Wall2" parent="." instance=ExtResource("2_ilj08")]
-position = Vector2(1064, 544)
+position = Vector2(1064, 504)
 
 [node name="Wall3" parent="." instance=ExtResource("2_ilj08")]
-position = Vector2(992, 88)
+position = Vector2(992, 112)
+
+[node name="UI" parent="." instance=ExtResource("6_oime5")]
 
 [connection signal="level_clear" from="." to="." method="_on_level_clear"]
+[connection signal="restart_signal" from="UI" to="." method="_on_ui_restart_signal"]

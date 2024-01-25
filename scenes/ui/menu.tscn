@@ -1,0 +1,66 @@
+[gd_scene load_steps=5 format=3 uid="uid://blhj3fg7lc8mt"]
+
+[ext_resource type="Script" path="res://scenes/ui/menu.gd" id="1_ulhvu"]
+[ext_resource type="PackedScene" uid="uid://breyjm6tdqldx" path="res://scenes/level_frontiers.tscn" id="2_hmogh"]
+[ext_resource type="PackedScene" uid="uid://bp4dbxk73wt34" path="res://scenes/arrow.tscn" id="3_2qcox"]
+[ext_resource type="PackedScene" uid="uid://c1pipyrj6y3ob" path="res://scenes/box.tscn" id="4_1hovw"]
+
+[node name="Menu" type="Node2D"]
+script = ExtResource("1_ulhvu")
+metadata/_edit_vertical_guides_ = [-2.0, 528.0, 624.0]
+metadata/_edit_horizontal_guides_ = [272.0, 368.0]
+
+[node name="LevelFrontiers" parent="." instance=ExtResource("2_hmogh")]
+script = null
+
+[node name="ColorRect" type="ColorRect" parent="."]
+light_mask = 0
+visibility_layer = 2
+offset_left = 2.0
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+mouse_force_pass_scroll_events = false
+color = Color(0, 0.737255, 0.603922, 1)
+
+[node name="Arrow" parent="." instance=ExtResource("3_2qcox")]
+position = Vector2(506, 318)
+
+[node name="Arrow2" parent="." instance=ExtResource("3_2qcox")]
+position = Vector2(574, 391)
+rotation = 4.71239
+
+[node name="Arrow3" parent="." instance=ExtResource("3_2qcox")]
+position = Vector2(578, 249)
+rotation = 1.5708
+
+[node name="Arrow4" parent="." instance=ExtResource("3_2qcox")]
+position = Vector2(647, 322)
+rotation = 3.14159
+
+[node name="Box2" parent="." instance=ExtResource("4_1hovw")]
+position = Vector2(576, 320)
+
+[node name="GameTitle" type="Label" parent="."]
+offset_top = 64.0
+offset_right = 1144.0
+offset_bottom = 133.0
+size_flags_horizontal = 10
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 50
+text = "Fill the Holes
+"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Message" type="Label" parent="."]
+offset_left = 8.0
+offset_top = 536.0
+offset_right = 1144.0
+offset_bottom = 559.0
+theme_override_font_sizes/font_size = 30
+text = "click on the box above to start"
+horizontal_alignment = 1
+
+[connection signal="body_exited" from="LevelFrontiers" to="." method="_on_level_frontiers_body_exited"]

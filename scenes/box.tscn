@@ -1,11 +1,27 @@
-[gd_scene load_steps=8 format=3 uid="uid://c1pipyrj6y3ob"]
+[gd_scene load_steps=9 format=3 uid="uid://c1pipyrj6y3ob"]
 
 [ext_resource type="Script" path="res://scenes/box.gd" id="1_enl2s"]
 [ext_resource type="Texture2D" uid="uid://bvahu4csjjyrv" path="res://sprites/Box.png" id="1_vlee1"]
 [ext_resource type="Script" path="res://scenes/area.gd" id="3_85odq"]
+[ext_resource type="Texture2D" uid="uid://dso58pw6kpbl7" path="res://sprites/Box_alternative.png" id="3_nliwg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_shgpc"]
 size = Vector2(78, 78)
+
+[sub_resource type="Animation" id="Animation_r3e05"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_jrpc4"]
 resource_name = "fade_in"
@@ -13,29 +29,14 @@ length = 1.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AreaRight/Sprite2D:scale")
+tracks/0/path = NodePath(".:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.3, 0.6, 0.9, 1.1, 1.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(0.375, 0.375), Vector2(0.25, 0.25), Vector2(0.375, 0.375), Vector2(0.35, 0.35), Vector2(0.375, 0.375)]
-}
-
-[sub_resource type="Animation" id="Animation_r3e05"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AreaRight/Sprite2D:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0.375, 0.375)]
+"values": [Vector2(0, 0), Vector2(1, 1), Vector2(0.8, 0.8), Vector2(1, 1), Vector2(0.9, 0.9), Vector2(1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_anaoi"]
@@ -76,8 +77,14 @@ script = ExtResource("3_85odq")
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AreaRight"]
 polygon = PackedVector2Array(0, 0, 40, -40, 40, 40)
 
-[node name="Sprite2D" type="Sprite2D" parent="AreaRight"]
-scale = Vector2(0.375, 0.375)
+[node name="Sprite2D_alternative" type="Sprite2D" parent="."]
+position = Vector2(-8.10623e-06, -6.19888e-06)
+scale = Vector2(0.866666, 0.866667)
+texture = ExtResource("3_nliwg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1.52588e-05, 1.83582e-05)
+scale = Vector2(0.37037, 0.37037)
 texture = ExtResource("1_vlee1")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

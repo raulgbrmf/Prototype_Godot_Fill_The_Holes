@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://bjiqm5e3u0y85"]
+
+[ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_j0gaf"]
+[ext_resource type="PackedScene" uid="uid://breyjm6tdqldx" path="res://scenes/level_frontiers.tscn" id="2_fh6ro"]
+[ext_resource type="PackedScene" uid="uid://vkncio7jl66d" path="res://scenes/empty_square.tscn" id="4_63ms0"]
+[ext_resource type="PackedScene" uid="uid://drojw8lkdp5sq" path="res://scenes/ui/ui.tscn" id="5_5avb3"]
+[ext_resource type="PackedScene" uid="uid://c1pipyrj6y3ob" path="res://scenes/box.tscn" id="5_ibhjt"]
+
+[node name="Stage1" type="Node2D"]
+script = ExtResource("1_j0gaf")
+metadata/_edit_vertical_guides_ = [-2.0]
+
+[node name="LevelFrontiers" parent="." instance=ExtResource("2_fh6ro")]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+light_mask = 0
+visibility_layer = 2
+offset_left = 2.0
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+mouse_force_pass_scroll_events = false
+color = Color(0, 0.737255, 0.603922, 1)
+
+[node name="EmptySquare4" parent="." instance=ExtResource("4_63ms0")]
+position = Vector2(472, 320)
+
+[node name="Box2" parent="." instance=ExtResource("5_ibhjt")]
+position = Vector2(664, 320)
+
+[node name="UI" parent="." instance=ExtResource("5_5avb3")]
+
+[connection signal="level_clear" from="." to="." method="_on_level_clear"]
+[connection signal="restart_signal" from="UI" to="." method="_on_ui_restart_signal"]

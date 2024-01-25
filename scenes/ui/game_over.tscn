@@ -1,0 +1,39 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqgret5exin7r"]
+
+[ext_resource type="Script" path="res://scenes/ui/game_over.gd" id="1_05yr4"]
+
+[node name="GameOver" type="Node2D"]
+script = ExtResource("1_05yr4")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+light_mask = 0
+visibility_layer = 2
+offset_right = 1150.0
+offset_bottom = 648.0
+mouse_filter = 2
+mouse_force_pass_scroll_events = false
+color = Color(0, 0.737255, 0.603922, 1)
+
+[node name="Score" type="Label" parent="."]
+offset_left = 520.0
+offset_top = 280.0
+offset_right = 623.0
+offset_bottom = 322.0
+theme_override_font_sizes/font_size = 30
+text = "0 clicks"
+
+[node name="DareMessage" type="Label" parent="."]
+offset_left = 328.0
+offset_top = 336.0
+offset_right = 815.0
+offset_bottom = 385.0
+theme_override_font_sizes/font_size = 35
+text = "Can you do better next time?"
+
+[node name="GameOverMessage" type="Label" parent="."]
+offset_left = 456.0
+offset_top = 192.0
+offset_right = 700.0
+offset_bottom = 261.0
+theme_override_font_sizes/font_size = 50
+text = "You Won!!"
