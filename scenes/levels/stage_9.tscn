@@ -1,0 +1,55 @@
+[gd_scene load_steps=7 format=3 uid="uid://dteoxwvf1pw8v"]
+
+[ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_iy4n8"]
+[ext_resource type="PackedScene" uid="uid://breyjm6tdqldx" path="res://scenes/level_frontiers.tscn" id="2_rthu5"]
+[ext_resource type="PackedScene" uid="uid://vkncio7jl66d" path="res://scenes/empty_square.tscn" id="3_0xuo8"]
+[ext_resource type="PackedScene" uid="uid://by2ionaxlhr26" path="res://scenes/wall.tscn" id="3_ub4dg"]
+[ext_resource type="PackedScene" uid="uid://c1pipyrj6y3ob" path="res://scenes/box.tscn" id="4_5w0tb"]
+[ext_resource type="PackedScene" uid="uid://drojw8lkdp5sq" path="res://scenes/ui/ui.tscn" id="5_psk4w"]
+
+[node name="Stage1" type="Node2D"]
+script = ExtResource("1_iy4n8")
+metadata/_edit_vertical_guides_ = [-2.0]
+
+[node name="LevelFrontiers" parent="." instance=ExtResource("2_rthu5")]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+light_mask = 0
+visibility_layer = 2
+offset_left = 2.0
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+mouse_force_pass_scroll_events = false
+color = Color(0, 0.737255, 0.603922, 1)
+
+[node name="Wall" parent="." instance=ExtResource("3_ub4dg")]
+position = Vector2(816, 496)
+
+[node name="EmptySquare4" parent="." instance=ExtResource("3_0xuo8")]
+position = Vector2(480, 416)
+
+[node name="EmptySquare5" parent="." instance=ExtResource("3_0xuo8")]
+position = Vector2(736, 224)
+
+[node name="EmptySquare6" parent="." instance=ExtResource("3_0xuo8")]
+position = Vector2(480, 224)
+
+[node name="EmptySquare7" parent="." instance=ExtResource("3_0xuo8")]
+position = Vector2(736, 416)
+
+[node name="Box2" parent="." instance=ExtResource("4_5w0tb")]
+position = Vector2(480, 144)
+
+[node name="Box3" parent="." instance=ExtResource("4_5w0tb")]
+position = Vector2(816, 416)
+
+[node name="Box4" parent="." instance=ExtResource("4_5w0tb")]
+position = Vector2(480, 496)
+
+[node name="Box5" parent="." instance=ExtResource("4_5w0tb")]
+position = Vector2(400, 416)
+
+[node name="UI" parent="." instance=ExtResource("5_psk4w")]
+
+[connection signal="restart_signal" from="UI" to="." method="_on_ui_restart_signal"]

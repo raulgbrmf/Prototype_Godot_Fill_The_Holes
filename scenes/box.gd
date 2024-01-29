@@ -1,7 +1,6 @@
 extends CharacterBody2D
 class_name Box
 
-
 var SPEED = 500
 var moving:bool = false
 var collided:bool = false

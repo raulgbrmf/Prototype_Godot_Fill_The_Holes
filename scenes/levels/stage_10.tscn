@@ -1,0 +1,61 @@
+[gd_scene load_steps=7 format=3 uid="uid://csmvsm004xys1"]
+
+[ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_31drl"]
+[ext_resource type="PackedScene" uid="uid://breyjm6tdqldx" path="res://scenes/level_frontiers.tscn" id="2_nwnvw"]
+[ext_resource type="PackedScene" uid="uid://vkncio7jl66d" path="res://scenes/empty_square.tscn" id="3_d04v6"]
+[ext_resource type="PackedScene" uid="uid://by2ionaxlhr26" path="res://scenes/wall.tscn" id="3_rm7hy"]
+[ext_resource type="PackedScene" uid="uid://c1pipyrj6y3ob" path="res://scenes/box.tscn" id="4_tdaie"]
+[ext_resource type="PackedScene" uid="uid://drojw8lkdp5sq" path="res://scenes/ui/ui.tscn" id="5_dc46i"]
+
+[node name="Stage1" type="Node2D"]
+script = ExtResource("1_31drl")
+metadata/_edit_vertical_guides_ = [-2.0]
+
+[node name="LevelFrontiers" parent="." instance=ExtResource("2_nwnvw")]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+light_mask = 0
+visibility_layer = 2
+offset_left = 2.0
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+mouse_force_pass_scroll_events = false
+color = Color(0, 0.737255, 0.603922, 1)
+
+[node name="Wall" parent="." instance=ExtResource("3_rm7hy")]
+position = Vector2(776, 272)
+
+[node name="Wall2" parent="." instance=ExtResource("3_rm7hy")]
+position = Vector2(864, 432)
+
+[node name="Wall3" parent="." instance=ExtResource("3_rm7hy")]
+position = Vector2(400, 432)
+
+[node name="EmptySquare4" parent="." instance=ExtResource("3_d04v6")]
+position = Vector2(608, 352)
+
+[node name="EmptySquare5" parent="." instance=ExtResource("3_d04v6")]
+position = Vector2(688, 272)
+
+[node name="EmptySquare6" parent="." instance=ExtResource("3_d04v6")]
+position = Vector2(608, 272)
+
+[node name="EmptySquare7" parent="." instance=ExtResource("3_d04v6")]
+position = Vector2(688, 352)
+
+[node name="Box2" parent="." instance=ExtResource("4_tdaie")]
+position = Vector2(400, 184)
+
+[node name="Box3" parent="." instance=ExtResource("4_tdaie")]
+position = Vector2(536, 432)
+
+[node name="Box4" parent="." instance=ExtResource("4_tdaie")]
+position = Vector2(608, 192)
+
+[node name="Box5" parent="." instance=ExtResource("4_tdaie")]
+position = Vector2(400, 272)
+
+[node name="UI" parent="." instance=ExtResource("5_dc46i")]
+
+[connection signal="restart_signal" from="UI" to="." method="_on_ui_restart_signal"]
